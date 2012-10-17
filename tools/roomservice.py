@@ -25,7 +25,7 @@ repositories = []
 
 page = 1
 while not depsonly:
-    result = json.loads(urllib2.urlopen("https://api.github.com/users/SpawnPool/repos?page=%d" % page).read())
+    result = json.loads(urllib2.urlopen("https://api.github.com/users/SpawnPool/repos?per_page=100&page=%d" % page).read())
     if len(result) == 0:
         break
     for res in result:
