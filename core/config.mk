@@ -502,6 +502,9 @@ RS_PREBUILT_COMPILER_RT := prebuilts/sdk/renderscript/lib/$(TARGET_ARCH)/libcomp
 # Enforce SELinux policy from CM
 include build/vendor/sepolicy/sepolicy.mk
 
+# Rules for QCOM targets
+include $(BUILD_SYSTEM)/qcom_target.mk
+
 # Include Optimized dalvik
 include build/vendor/lib/lib.mk
 include $(BUILD_SYSTEM)/dumpvar.mk
