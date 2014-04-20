@@ -70,7 +70,7 @@ TARGET_arm_CFLAGS :=    -O3 \
                         -Wno-error=unused-variable \
                         -Wformat \
                         -Wsign-compare \
-			            -Wno-error=return-type
+                        -Wno-error=return-type
                         
 # Modules can choose to compile some source as thumb.
 TARGET_thumb_CFLAGS :=  -mthumb \
@@ -81,7 +81,7 @@ TARGET_thumb_CFLAGS :=  -mthumb \
                         -Wno-error=unused-variable \
                         -Wformat \
                         -Wsign-compare \
-			            -Wno-error=return-type 
+                        -Wno-error=return-type 
 
 # Set FORCE_ARM_DEBUGGING to "true" in your buildspec.mk
 # or in your environment to force a full arm build, even for
