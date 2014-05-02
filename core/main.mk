@@ -42,12 +42,13 @@ endif
 ifeq (,$(findstring CYGWIN,$(shell uname -sm)))
 ifeq (0,$(shell expr $$(echo $(MAKE_VERSION) | sed "s/[^0-9\.].*//") = 3.81))
 ifeq (0,$(shell expr $$(echo $(MAKE_VERSION) | sed "s/[^0-9\.].*//") = 3.82))
+ifeq (0,$(shell expr $$(echo $(MAKE_VERSION) | sed "s/[^0-9\.].*//") = 4.0))
 $(warning ********************************************************************************)
 $(warning *  You are using version $(MAKE_VERSION) of make.)
-$(warning *  Android can only be built by versions 3.81 and 3.82.)
+$(warning *  Android is tested to build with versions 3.81, 3.82 and 4.0)
 $(warning *  see https://source.android.com/source/download.html)
 $(warning ********************************************************************************)
-# $(error stopping)
+endif
 endif
 endif
 endif
@@ -148,8 +149,9 @@ $(info $(space))
 $(info You use OpenJDK but only Sun/Oracle JDK is supported.)
 $(info Please follow the machine setup instructions at)
 $(info $(space)$(space)$(space)$(space)https://source.android.com/source/download.html)
+$(info $(space))
+$(info Continue at your own peril!)
 $(info ************************************************************)
-# $(error stop)
 endif
 
 # Check for the correct version of java
@@ -519,7 +521,7 @@ ifneq ($(filter-out $(GRANDFATHERED_ALL_PREBUILT),$(strip $(notdir $(ALL_PREBUIL
   $(warning *)
   $(foreach bad_prebuilt,$(filter-out $(GRANDFATHERED_ALL_PREBUILT),$(strip $(notdir $(ALL_PREBUILT)))),$(warning * unexpected $(bad_prebuilt) in ALL_PREBUILT))
   $(warning *)
-  $(error ALL_PREBUILT contains unexpected files)
+  #$(error ALL_PREBUILT contains unexpected files)
 endif
 
 # -------------------------------------------------------------------
