@@ -1,7 +1,6 @@
 #!/bin/sh
 #
-# Squish an OctOS otapackage for distribution
-# team-octos
+# Squish the otapackage for distribution
 #
 
 . $ANDROID_BUILD_TOP/build/tools/moartools/functions
@@ -147,15 +146,15 @@ CAMERARESOLUTION=`sed -n -e'/ro\.camera\.res/s/^.*=//p' $REPACK/ota/system/build
 #   rm -f $REPACK/ota/system/app/Gallery2.apk
 #fi
 
-# Swap boot.img
-PREBUILTKERNEL=$OUT/system/octkernel/boot.img
-if [ -e "$PREBUILTKERNEL" ];then
-   rm -f $REPACK/ota/boot.img
-   mv -f $REPACK/ota/system/octkernel/boot.img $REPACK/ota/boot.img
-fi
+# Swap boot.img -Disabled for now
+#PREBUILTKERNEL=$OUT/system/kernel/boot.img
+#if [ -e "$PREBUILTKERNEL" ];then
+#   rm -f $REPACK/ota/boot.img
+#   mv -f $REPACK/ota/system/kernel/boot.img $REPACK/ota/boot.img
+#fi
 
 # Determine what to name the new signed package
-MODVERSION=`sed -n -e'/ro\.oct\.version/s/^.*=//p' $OUT/system/build.prop`
+MODVERSION=`sed -n -e'/ro\.[a-z][a-z][a-z]\.version/s/^.*=//p' $OUT/system/build.prop`
 TARGET_PRODUCT_FINAL=`echo $TARGET_PRODUCT | cut -d '_' -f2`
 echo $CL_CYN"MODVERSION: $MODVERSION"$CL_RST
 OUTFILE=$OUT/$MODVERSION-$TARGET_PRODUCT_FINAL.zip
@@ -177,7 +176,10 @@ echo
 
 # Create a md5 checksum image of the repacked package
 (
-img=`basename $OUTFILE`
+echo $OUTFILE
+echo $AOS_POSTFIX
+img=`basename "${OUTFILE}"`
+echo $img
 cd `dirname $OUTFILE`
 $MD5 $img >$img.md5sum
 echo

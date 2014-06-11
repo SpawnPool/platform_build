@@ -536,10 +536,9 @@ function mka() {
 function breakfast()
 {
     target=$1
-    OCT_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/oct/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/[[*]_[*]]/vendorsetup.sh 2> /dev/null`
         do
 echo "including $f"
             . $f
@@ -555,8 +554,8 @@ echo "z$target" | grep -q "-"
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the OCT model name
-            lunch oct_$target-userdebug
+            # This is probably just the device model name
+            lunch [a-z][a-z][a-z]__$target-userdebug
         fi
 fi
 return $?
