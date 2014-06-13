@@ -560,7 +560,7 @@ echo "z$target" | grep -q "-"
             lunch $target
         else
             # This is probably just the device model name
-            lunch [a-z][a-z][a-z]__$target-userdebug
+            lunch $TARGET_PRODUCT-$TARGET_BUILD_VARIANT
         fi
 fi
 return $?
