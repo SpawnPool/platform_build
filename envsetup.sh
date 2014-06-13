@@ -513,8 +513,8 @@ echo "z$target" | grep -q "-"
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the OCT model name
-            lunch oct_$target-userdebug
+            # This is probably just the device model name
+            lunch $TARGET_PRODUCT-$TARGET_BUILD_VARIANT
         fi
 fi
 return $?
