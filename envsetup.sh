@@ -75,7 +75,6 @@ function check_product()
 
     if (echo -n $1 | grep -q -e "^oct_") ; then
        OCT_BUILD=$(echo -n $1 | sed -e 's/^oct_//g')
-       export BUILD_NUMBER=$((date +%s%N ; echo $OCT_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10)
     else
        OCT_BUILD=
     fi
