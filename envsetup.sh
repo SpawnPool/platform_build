@@ -522,7 +522,6 @@ function mka() {
 function breakfast()
 {
     target=$1
-    [A-Z][A-Z][A-Z]_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
     for f in `/bin/ls vendor/[a-z][a-z][a-z]/vendorsetup.sh 2> /dev/null`
