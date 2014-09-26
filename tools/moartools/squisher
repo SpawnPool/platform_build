@@ -175,20 +175,36 @@ java -Xmx1024m \
 	-jar $OUT/../../../host/$OUT_TARGET_HOST/framework/signapk.jar \
 	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 	$REPACK/update.zip $OUTFILE
-echo
-printf "Cleaning up..."
+echo -e
+echo -e $CL_CYN"Cleaning up..."$CL_RST
 rm -rf $REPACK
-echo
+echo -e
 
 # Create a md5 checksum image of the repacked package
 (
 img=`basename $OUTFILE`
 cd `dirname $OUTFILE`
 $MD5 $img >$img.md5sum
-echo
-echo -e $CL_GRN"Package complete: $OUTFILE"$CL_RST
-cat $img.md5sum
-echo
+ZIPSIZE=`ls -lah $OUTFILE | awk '{ print $5}' `
+echo -e
+echo -e $CL_RED"      ___"$CL_MAG"           ___   "$CL_CYN"     __"$CL_BLU"             __"$CL_YLW"           ___"$CL_RST
+echo -e $CL_RED"     /\__\ "$CL_MAG"        /\  \  "$CL_CYN"    /\  \ "$CL_BLU"        /\  \ "$CL_YLW"        /\  \ "$CL_RST
+echo -e $CL_RED"    /:/ _/_  "$CL_MAG"     /::\  \ "$CL_CYN"   /::\  \ "$CL_BLU"       \:\  \ "$CL_YLW"       \:\  \ "$CL_RST
+echo -e $CL_RED"   /:/ /\  \ "$CL_MAG"    /:/\:\__\ "$CL_CYN" /:/\:\  \  "$CL_BLU"      \:\  \ "$CL_YLW"       \:\  \ "$CL_RST
+echo -e $CL_RED"  /:/ /: \  \ "$CL_MAG"  /:/ /:/  /"$CL_CYN" /:/ / :\  \ "$CL_BLU"   __  \:\  \ "$CL_YLW"  _____\:\  \ "$CL_RST
+echo -e $CL_RED" /:/_/:/\:\__\ "$CL_MAG"/:/_/:/  /"$CL_CYN" /:/_/::\:\__\ "$CL_BLU"/\  \__\:\__\ "$CL_YLW"/::::::::\__\ "$CL_RST
+echo -e $CL_RED" \:\/:/ /:/  /"$CL_MAG" \:\/:/  / "$CL_CYN" \:\/:/  \/__/ "$CL_BLU"\:\ |::__/__/ "$CL_YLW"\::------/__/  "$CL_RST
+echo -e $CL_RED"  \::/ /:/  / "$CL_MAG"  \: /__/   "$CL_CYN" \::/__/    "$CL_BLU"   \:\|:|  |"$CL_YLW"     \:\  \      "$CL_RST
+echo -e $CL_RED"   \/_/:/  /  "$CL_MAG"   \:\  \  "$CL_CYN"   \:\  \   "$CL_BLU"     \:::|  | "$CL_YLW"     \:\  \ "$CL_RST
+echo -e $CL_RED"     /:/  / "$CL_MAG"      \:\__\ "$CL_CYN"    \:\__\ "$CL_BLU"       \::|__| "$CL_YLW"      \:\__\ "$CL_RST
+echo -e $CL_RED"     \/__/ "$CL_MAG"        \/__/ "$CL_CYN"     \/__/ "$CL_BLU"        \/__/ "$CL_YLW"        \/__/ "$CL_RST
+echo -e
+echo -e $CL_CYN"===========-Package complete-==========="$CL_RST
+echo -e $CL_CYN"zip:"$CL_MAG" $OUTFILE"$CL_RST
+echo -e $CL_CYN"md5:"$CL_MAG" $(cat $img.md5sum | awk '{ print $1 }')"$CL_RST
+echo -e $CL_CYN"size:"$CL_MAG" $ZIPSIZE"$CL_RST
+echo -e $CL_CYN"========================================"$CL_RST
+echo -e
 )
 
 exit 0
