@@ -187,17 +187,19 @@ cd `dirname $OUTFILE`
 $MD5 $img >$img.md5sum
 ZIPSIZE=`ls -lah $OUTFILE | awk '{ print $5}' `
 echo -e
-echo -e $CL_RED"      ___"$CL_MAG"           ___   "$CL_CYN"     __"$CL_BLU"             __"$CL_YLW"           ___"$CL_RST
-echo -e $CL_RED"     /\__\ "$CL_MAG"        /\  \  "$CL_CYN"    /\  \ "$CL_BLU"        /\  \ "$CL_YLW"        /\  \ "$CL_RST
-echo -e $CL_RED"    /:/ _/_  "$CL_MAG"     /::\  \ "$CL_CYN"   /::\  \ "$CL_BLU"       \:\  \ "$CL_YLW"       \:\  \ "$CL_RST
-echo -e $CL_RED"   /:/ /\  \ "$CL_MAG"    /:/\:\__\ "$CL_CYN" /:/\:\  \  "$CL_BLU"      \:\  \ "$CL_YLW"       \:\  \ "$CL_RST
-echo -e $CL_RED"  /:/ /: \  \ "$CL_MAG"  /:/ /:/  /"$CL_CYN" /:/ / :\  \ "$CL_BLU"   __  \:\  \ "$CL_YLW"  _____\:\  \ "$CL_RST
-echo -e $CL_RED" /:/_/:/\:\__\ "$CL_MAG"/:/_/:/  /"$CL_CYN" /:/_/::\:\__\ "$CL_BLU"/\  \__\:\__\ "$CL_YLW"/::::::::\__\ "$CL_RST
-echo -e $CL_RED" \:\/:/ /:/  /"$CL_MAG" \:\/:/  / "$CL_CYN" \:\/:/  \/__/ "$CL_BLU"\:\ |::__/__/ "$CL_YLW"\::------/__/  "$CL_RST
-echo -e $CL_RED"  \::/ /:/  / "$CL_MAG"  \: /__/   "$CL_CYN" \::/__/    "$CL_BLU"   \:\|:|  |"$CL_YLW"     \:\  \      "$CL_RST
-echo -e $CL_RED"   \/_/:/  /  "$CL_MAG"   \:\  \  "$CL_CYN"   \:\  \   "$CL_BLU"     \:::|  | "$CL_YLW"     \:\  \ "$CL_RST
-echo -e $CL_RED"     /:/  / "$CL_MAG"      \:\__\ "$CL_CYN"    \:\__\ "$CL_BLU"       \::|__| "$CL_YLW"      \:\__\ "$CL_RST
-echo -e $CL_RED"     \/__/ "$CL_MAG"        \/__/ "$CL_CYN"     \/__/ "$CL_BLU"        \/__/ "$CL_YLW"        \/__/ "$CL_RST
+
+
+echo -e $CL_RED"  ██████  ██▓███   ▄▄▄       █     █░███▄    █     ██▓███   ▒█████   ▒█████   ██▓"CL_RST
+echo -e $CL_RED"▒██    ▒ ▓██░  ██▒▒████▄    ▓█░ █ ░█░██ ▀█   █    ▓██░  ██▒▒██▒  ██▒▒██▒  ██▒▓██▒"CL_RST
+echo -e $CL_RED"░ ▓██▄   ▓██░ ██▓▒▒██  ▀█▄  ▒█░ █ ░█▓██  ▀█ ██▒   ▓██░ ██▓▒▒██░  ██▒▒██░  ██▒▒██░"CL_RST
+echo -e $CL_RED"  ▒   ██▒▒██▄█▓▒ ▒░██▄▄▄▄██ ░█░ █ ░█▓██▒  ▐▌██▒   ▒██▄█▓▒ ▒▒██   ██░▒██   ██░▒██░"CL_RST
+echo -e $CL_RED"▒██████▒▒▒██▒ ░  ░ ▓█   ▓██▒░░██▒██▓▒██░   ▓██░   ▒██▒ ░  ░░ ████▓▒░░ ████▓▒░░██████▒"CL_RST
+echo -e $CL_RED"▒ ▒▓▒ ▒ ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▓░▒ ▒ ░ ▒░   ▒ ▒    ▒▓▒░ ░  ░░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░▓  ░"CL_RST
+echo -e $CL_RED"░ ░▒  ░ ░░▒ ░       ▒   ▒▒ ░  ▒ ░ ░ ░ ░░   ░ ▒░   ░▒ ░       ░ ▒ ▒░   ░ ▒ ▒░ ░ ░ ▒  ░"CL_RST
+echo -e $CL_RED"░  ░  ░  ░░         ░   ▒     ░   ░    ░   ░ ░    ░░       ░ ░ ░ ▒  ░ ░ ░ ▒    ░ ░"CL_RST
+echo -e $CL_RED"      ░                 ░  ░    ░            ░                 ░ ░      ░ ░      ░  ░"CL_RST
+
+
 echo -e
 echo -e $CL_CYN"===========-Package complete-==========="$CL_RST
 echo -e $CL_CYN"zip:"$CL_MAG" $OUTFILE"$CL_RST
