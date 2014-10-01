@@ -180,15 +180,6 @@ echo -e $CL_CYN"Cleaning up..."$CL_RST
 rm -rf $REPACK
 echo -e
 
-# Create a md5 checksum image of the repacked package
-(
-img=`basename $OUTFILE`
-cd `dirname $OUTFILE`
-$MD5 $img >$img.md5sum
-ZIPSIZE=`ls -lah $OUTFILE | awk '{ print $5}' `
-echo -e
-
-
 echo -e $CL_RED"  ██████  ██▓███   ▄▄▄       █     █░███▄    █     ██▓███   ▒█████   ▒█████   ██▓"CL_RST
 echo -e $CL_RED"▒██    ▒ ▓██░  ██▒▒████▄    ▓█░ █ ░█░██ ▀█   █    ▓██░  ██▒▒██▒  ██▒▒██▒  ██▒▓██▒"CL_RST
 echo -e $CL_RED"░ ▓██▄   ▓██░ ██▓▒▒██  ▀█▄  ▒█░ █ ░█▓██  ▀█ ██▒   ▓██░ ██▓▒▒██░  ██▒▒██░  ██▒▒██░"CL_RST
@@ -199,7 +190,11 @@ echo -e $CL_RED"░ ░▒  ░ ░░▒ ░       ▒   ▒▒ ░  ▒ ░ �
 echo -e $CL_RED"░  ░  ░  ░░         ░   ▒     ░   ░    ░   ░ ░    ░░       ░ ░ ░ ▒  ░ ░ ░ ▒    ░ ░"CL_RST
 echo -e $CL_RED"      ░                 ░  ░    ░            ░                 ░ ░      ░ ░      ░  ░"CL_RST
 
-
+# Create a md5 checksum image of the repacked package
+(
+img=`basename $OUTFILE`
+cd `dirname $OUTFILE`
+$MD5 $img >$img.md5sum
 echo -e
 echo -e $CL_CYN"===========-Package complete-==========="$CL_RST
 echo -e $CL_CYN"zip:"$CL_MAG" $OUTFILE"$CL_RST
